@@ -1,0 +1,15 @@
+version: "3.8"
+
+services:
+  account_mgr:
+    build: .
+    container_name: account_mgr
+    depends_on:
+      - mongodb
+    environment:
+      HOST: 0.0.0.0
+      PORT: 9090
+      USER_OPERATIONS_HOST: localhost:9090
+    image: account_mgr:latest
+    ports:
+      - "9090:9090"
